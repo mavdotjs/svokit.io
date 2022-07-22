@@ -10,7 +10,6 @@ To initialize svokit, you'll need to create a svokit config, and apply the plugi
 
 svokit.config.mjs
 ```js
-// optional typing
 /** @type {import('svokit').Config} */
 export default {
     out: 'out', // Same as out parameter provided to node adapter in the svelte.config.js (only used in build)
