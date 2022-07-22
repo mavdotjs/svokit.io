@@ -5,13 +5,17 @@ declare module 'svokit'
 /**
  * @description Contains all svocket config
  */
-type Config = {
+declare type Config = {
     mount(io: Server): void,
     out: string | "build" | "out"
 }
 
 
-export default function plugin(): {
+declare function plugin(): {
     name: 'svocket.io',
     configureServer(server): void
 }
+
+
+
+export default plugin;
