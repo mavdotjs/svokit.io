@@ -20,7 +20,7 @@ export default {
 }
 ```
 
-vite.config.js
+vite.config.cjs
 ```js
 import { sveltekit } from '@sveltejs/kit/vite';
 import svokit from 'svokit';

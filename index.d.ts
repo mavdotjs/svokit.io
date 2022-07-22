@@ -1,5 +1,7 @@
 import { Server } from "socket.io";
 
+declare module 'svokit'
+
 /**
  * @description Contains all svocket config
  */
