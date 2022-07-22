@@ -1,6 +1,6 @@
 {
   "name": "svokit",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A library + CLI that binds socket.io to sveltekit",
   "main": "plugin.js",
   "scripts": {
@@ -8,7 +8,10 @@
   },
   "files": [
     "cli.js",
-    "plugin.js"
+    "plugin.js",
+    "serve.js",
+    "config.js",
+    "index.d.ts"
   ],
   "types": "index.d.ts",
   "author": "",
