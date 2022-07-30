@@ -1,21 +1,16 @@
 import { Server } from "socket.io";
 
-declare module 'svokit'
-
+declare function plugin(): {
+    name: 'svokit.io',
+    configureServer(server): void
+}
 /**
  * @description Contains all svocket config
  */
-declare type Config = {
+type Config = {
     mount(io: Server): void,
     out: string | "build" | "out"
 }
 
-
-declare function plugin(): {
-    name: 'svocket.io',
-    configureServer(server): void
-}
-
-
-
-export default plugin;
+export { Config }
+export default plugin
