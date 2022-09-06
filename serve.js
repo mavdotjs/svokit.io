@@ -2,7 +2,6 @@ import express from 'express';
 import http from 'http';
 import mpath from 'path';
 import * as socket from 'socket.io';
-import defconf from './config.js'
 
 /**
  * 
@@ -24,7 +23,7 @@ export default async function serve(config) {
 }
 
 async function servedefault() {
-    return await serve(defconf)
+    return await serve(await import('./config'))
 }
 
 export {

@@ -12,6 +12,6 @@ try {
 } catch {
     config = null;
 }
-if(config === null) throw new Error("svokit couldn't detect a config file, run " + "svokit setup".italic + " To create a config file")
+if(!config) throw new Error("svokit couldn't detect a config file, run " + "svokit setup".italic + " To create a config file")
 
 export default config;
