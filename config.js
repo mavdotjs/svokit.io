@@ -1,3 +1,4 @@
+import 'colors';
 import { join } from 'node:path'
 import { cwd } from 'node:process'
 
