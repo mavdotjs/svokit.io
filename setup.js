@@ -1,7 +1,8 @@
+import 'colors';
 import fs from 'node:fs/promises';
 import { join as j } from 'node:path';
 import { cwd as c } from 'node:process';
-import p from 'prompts';
+import p from 'prompts'; 
 const { default: pj } = await import(j(c(), "package.json"), {
     assert: { type: 'json' }
 });
