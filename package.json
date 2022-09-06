@@ -1,6 +1,6 @@
 {
   "name": "svokit",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "A library + CLI that binds socket.io to sveltekit",
   "main": "plugin.js",
   "scripts": {},
@@ -15,6 +15,10 @@
   "types": "index.d.ts",
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/mavthedev/svokit.io"
+  },
   "dependencies": {
     "cac": "^6.7.12",
     "colors": "^1.4.0",
