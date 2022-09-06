@@ -22,6 +22,7 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-node": "^1.0.0-next.85",
+		"sisteransi": "^1.0.5",
 		"svokit": "file:.."
 	}
 }

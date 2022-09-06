@@ -13,7 +13,7 @@ export default async function serve(config) {
     const app = express();
     const server = http.createServer(app)
     const io = new socket.Server(server)
-    await config.mount(io)
+    await config.mount(io, server)
     app.use(handler)
     const path = process.env["SOCKET_PATH"] || false;
     const host = process.env["HOST"] || '0.0.0.0';
