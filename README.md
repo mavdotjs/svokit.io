@@ -1,9 +1,7 @@
 # Svokit.io
 This module allows socket.io to bind to a sveltekit (vite) server
-Start by initializing a sveltekit server: `npm create @svelte-add/kit@latest && npm i -D vite@latest`<br />
+Start by initializing a sveltekit server: `npm create @svelte-add/kit@latest`<br />
 Next, install this library: `npm i svokit@latest`<br />
-then replace adapter-auto with adapter-node: `npm uninstall @sveltejs/adapter-auto && npm i -D @sveltejs/adapter-node`
-and replace the import in the svelte.config.js file: `import adapter from "@sveltejs/adapter-node";`
 
 ## Config
 To initialize svokit, you'll need to create a svokit config, and apply the plugin to the vite config:
@@ -32,5 +30,27 @@ const config = {
 
 export default config;
 ```
+
+Your svelte.config.js should look similar to this
+
+```js
+import adapter from '@sveltejs/adapter-node';
+import preprocess from 'svelte-preprocess';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	// Consult https://github.com/sveltejs/svelte-preprocess
+	// for more information about preprocessors
+	preprocess: preprocess(),
+
+	kit: {
+		adapter: adapter()
+	}
+};
+
+export default config;
+```
+
+Make sure `@sveltejs/adapter-node` is installed in lieu of `@sveltejs/adapter-auto` that comes with svelte-add
 
 To run the built app, instead of running `node buildfolder`, run `npx svokit`, or just `svokit` in package scripts.
