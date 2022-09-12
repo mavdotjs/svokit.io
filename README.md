@@ -9,10 +9,11 @@ To initialize svokit, you'll need to create a svokit config, and apply the plugi
 svokit.config.mjs
 ```js
 import { defineConfig } from "svokit"
+// code here must be written in mjs compatible format, $lib does not apply here.
 export default defineConfig({
-    out: 'build', // Same as out parameter provided to node adapter in the svelte.config.js (only used in build)
-    mount(io) // provides socket.io server (used in build and dev)
-    {
+    out: 'build', // Same as out in svelte config
+    mount(io, server/*optional*/) {
+		// socket.io code here
         console.log(io)
     }
 })
@@ -26,8 +27,9 @@ import svokit from 'svokit';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit(), svokit()]
-};
+	// ...
+	plugins: [sveltekit(), svokit(), /*...*/]
+}
 
 export default config;
 ```
@@ -35,17 +37,17 @@ export default config;
 Your svelte.config.js should look similar to this
 
 ```js
-import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-node'; //? Only works with adapter node
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: preprocess(),
-
+	// ...
 	kit: {
-		adapter: adapter()
+		// ...
+		adapter: adapter({
+			out: "build" //? should be the same as out in svokit config 
+		})
 	}
 };
 
