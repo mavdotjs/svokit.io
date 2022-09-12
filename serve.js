@@ -3,23 +3,23 @@ import http from 'http';
 import mpath from 'path';
 import * as socket from 'socket.io';
 
+export default async function createServer(config, handler) {
+    const app = express()
+    const server = http.createServer(app)
+    const io = new socket.Server(config.socket.options || {})
+    await config.mount(io, server)
+    app.use(handler)
+    return server
+}
+
 /**
  * 
  * @param {Config} config 
  */
-export default async function serve(config) {
+async function serve(config) {
     const { handler } = await import(mpath.join(process.cwd(), config.out, 'handler.js'))
-    const app = express();
-    const server = http.createServer(app)
-    const io = new socket.Server(server)
-    await config.mount(io, server)
-    app.use(handler)
-    const path = process.env["SOCKET_PATH"] || false;
-    const host = process.env["HOST"] || '0.0.0.0';
-    const port = process.env["PORT"] || (!path && '3000');
-
-    server.listen({ path, host, port });
-    return { host, path, port, server };
+    const server = await createServer(config, handler);
+    server.listen(config.port || 8080, '0.0.0.0')
 }
 
 async function servedefault() {
