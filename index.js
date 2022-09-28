@@ -5,9 +5,8 @@ export default function plugin() {
     return{
         name: `realtime`,
         async configureServer(serv) {
-            console.log('config')
             const io = new Sock(serv.httpServer)
-            (await config).default.mount(io, serv)
+            await (await config).default.mount(io, serv)
         }
     }
 }
