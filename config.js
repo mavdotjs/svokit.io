@@ -4,11 +4,9 @@ import { cwd } from 'node:process'
 
 const root = cwd()
 const loc = join(root, "svokit.config.mjs")
-
 let config;
-
 try {
-    config = (await import(loc)).default;
+    config = import(loc)
 } catch {
     config = null;
 }
