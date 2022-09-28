@@ -1,6 +1,6 @@
 {
   "name": "svokit",
-  "version": "3.5.3",
+  "version": "3.6.3",
   "description": "A library + CLI that binds socket.io to sveltekit",
   "main": "index.js",
   "scripts": {},
