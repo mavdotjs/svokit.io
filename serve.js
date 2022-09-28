@@ -6,8 +6,8 @@ import * as socket from 'socket.io';
 export default async function createServer(config, handler) {
     const app = express()
     const server = http.createServer(app)
-    const io = new socket.Server((await config).socket.options || {})
-    await (await config).mount(io, server)
+    const io = new socket.Server((await config).default.socket.options || {})
+    await (await config).default.mount(io, server)
     app.use(handler)
     return server
 }
@@ -17,9 +17,9 @@ export default async function createServer(config, handler) {
  * @param {Config} config 
  */
 async function serve(config) {
-    const { handler } = await import(mpath.join(process.cwd(), config.out, 'handler.js'))
+    const { handler } = await import(mpath.join(process.cwd(), (await config).default.out, 'handler.js'))
     const server = await createServer(config, handler);
-    server.listen(config.port || 8080, '0.0.0.0')
+    server.listen((await config).default.port || 8080, '0.0.0.0')
 }
 
 async function servedefault() {

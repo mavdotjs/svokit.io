@@ -7,7 +7,7 @@ export default function plugin() {
         async configureServer(serv) {
             console.log('config')
             const io = new Sock(serv.httpServer)
-            (await config).mount(io, serv)
+            (await config).default.mount(io, serv)
         }
     }
 }
