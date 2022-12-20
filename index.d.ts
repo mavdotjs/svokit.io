@@ -3,6 +3,7 @@ import type { Plugin } from 'vite'
 import type { Server as HTTPServer } from 'node:http'
 import type { Server as HTTPSServer } from 'node:https'
 
+export { Sock as SocketServer }
 
 declare function plugin(): Plugin
 /**

@@ -12,7 +12,7 @@ cli
     .command('[root]', "Run built svokit project.")
     .alias('run')
     .action(async () => {
-        const server = await serve(await import('./config'));
+        const server = await serve(await import('./config.js'));
         console.log(`svokit: ${server.host}:${server.port}`)
     })
 

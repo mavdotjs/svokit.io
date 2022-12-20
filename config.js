@@ -6,10 +6,9 @@ const root = cwd()
 const loc = join(root, "svokit.config.mjs")
 let config;
 try {
-    config = import(loc)
+    config = await import(loc)
 } catch {
-    config = null;
+    throw new Error("svokit couldn't detect a config file, run " + "svokit setup".italic + " To create a config file")
 }
-if(!config) throw new Error("svokit couldn't detect a config file, run " + "svokit setup".italic + " To create a config file")
 
 export default config;
