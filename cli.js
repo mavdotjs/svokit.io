@@ -23,4 +23,4 @@ cli
         spawnSync(cmd, { stdio: "inherit", shell: true })
     })
 
-cli.parse()
+cli.help().parse()
